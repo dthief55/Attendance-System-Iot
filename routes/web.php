@@ -7,15 +7,15 @@ Route::get('/', function () {
 });
 
 Route::get('/login', function () {
-    return view('login');
+    return view('login', ['title' => 'Masuk']);
 });
 
 Route::get('/register', function () {
-    return view('register');
+    return view('register', ['title' => 'Daftar']);
 });
 
 Route::get('/password', function () {
-    return view('password');
+    return view('password', ['title' => 'Lupa Password']);
 });
 
 Route::get('/charts', function () {
