@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', ["user" => "Kelompok 7"]);
 });
 
 Route::get('/login', function () {
@@ -19,9 +19,9 @@ Route::get('/password', function () {
 });
 
 Route::get('/charts', function () {
-    return view('charts');
+    return view('charts', ["user" => "Kelompok 7"]);
 });
 
 Route::get('/tables', function () {
-    return view('tables');
+    return view('tables', ["user" => "Kelompok 7"]);
 });

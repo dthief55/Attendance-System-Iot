@@ -1,4 +1,5 @@
 <x-layout>
+    <x-slot:user>{{ $user }}</x-slot:user>
     <main>
         <div class="container-fluid px-4">
             <h1 class="mt-4">Grafik</h1>

@@ -16,7 +16,7 @@
         <x-top-nav></x-top-nav>
 
         <div id="layoutSidenav">
-            <x-side-nav></x-side-nav>
+            <x-side-nav>{{ $user }}</x-side-nav>
 
             <div id="layoutSidenav_content">
                 {{ $slot }}
