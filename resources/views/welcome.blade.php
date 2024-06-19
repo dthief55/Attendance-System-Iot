@@ -35,7 +35,7 @@
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-chart-area me-1"></i>
-                            Contoh Grafik Area
+                            Grafik Area
                         </div>
                         <div class="card-body"><canvas id="grafikTotal" width="100%" height="40"></canvas></div>
                     </div>
@@ -45,7 +45,7 @@
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-chart-bar me-1"></i>
-                            Contoh Grafik Bar
+                            Grafik Bar
                         </div>
                         <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
                     </div>
@@ -55,57 +55,45 @@
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
-                    Contoh Data Tabel
+                    Data Tabel
                 </div>
                 <div class="card-body">
-                    <table id="datatablesSimple">
-                        <thead>
-                            <tr>
-                                <th>No.</th>
-                                <th>Nama</th>
-                                <th>NIM</th>
-                                <th>Kelas</th>
-                                <th>Kehadiran</th>
-                                <th>Jenis Kelamin</th>
-                            </tr>
-                        </thead>
-                        <tfoot>
-                            <tr>
-                                <th>No.</th>
-                                <th>Nama</th>
-                                <th>NIM</th>
-                                <th>Kelas</th>
-                                <th>Kehadiran</th>
-                                <th>Jenis Kelamin</th>
-                            </tr>
-                        </tfoot>
-                        <tbody>
-                            <tr>
-                                <td>1.</td>
-                                <td>Valentino Wahyu Pratama</td>
-                                <td>3332210021</td>
-                                <td>A</td>
-                                <td>Hadir</td>
-                                <td>Pria</td>
-                            </tr>
-                            <tr>
-                                <td>2.</td>
-                                <td>Gabriel Fernando</td>
-                                <td>3332210047</td>
-                                <td>B</td>
-                                <td>Tidak Hadir</td>
-                                <td>Pria</td>
-                            </tr>
-                            <tr>
-                                <td>3.</td>
-                                <td>Hadid Tamir</td>
-                                <td>3332210060</td>
-                                <td>C</td>
-                                <td>Hadir</td>
-                                <td>Pria</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="card-body">
+                        <table id="datatablesSimple">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Nama</th>
+                                    <th>NISN</th>
+                                    <th>Kelas</th>
+                                    <th>Jenis Kelamin</th>
+                                    <th>Kehadiran</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (isset($data_mahasiswa) && $data_mahasiswa->isNotEmpty())
+                                    <?php $i = 1; ?>
+                                    @foreach ($data_mahasiswa as $mhs)
+                                        <tr>
+                                            <td>{{ $i }}</td>
+                                            <td>{{ $mhs->nama }}</td>
+                                            <td>{{ $mhs->nisn }}</td>
+                                            <td>{{ $mhs->kelas }}</td>
+                                            <td>{{ $mhs->jenis_kelamin }}</td>
+                                            <td>{{ $mhs->kehadiran }}</td>
+                                        </tr>
+                                        <?php $i++; ?>
+                                    @endforeach
+                                @else
+                                @endif
+                            </tbody>
+                        </table>
+                        @if ( isset($formatted_timestamp) )
+                            <p><b>Terakhir diupdate: </b> {{ $formatted_timestamp }}</p>
+                        @else
+                            <p><b>Belum ada update data</b></p>
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>
